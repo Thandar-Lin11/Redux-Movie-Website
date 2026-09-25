@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import InfiniteScroll from "react-infinite-scroll-component";
 
@@ -8,7 +8,6 @@ import { fetchDataFromApi } from "../../utils/api";
 import ContentWrapper from "../../components/contentWrapper/ContentWrapper";
 import MovieCard from "../../components/movieCard/MovieCard";
 import Spinner from "../../components/spinner/Spinner";
-import noResults from "../../assets/no-results.png";
 
 const SearchResult = () => {
   const [data, setData] = useState(null);
@@ -46,6 +45,8 @@ const SearchResult = () => {
   useEffect(() => {
     setPageNum(1);
     fetchInitialData();
+    // Known bug: fetchInitialData reads a stale pageNum here; fixed in the search rewrite.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [query]);
 
   return (

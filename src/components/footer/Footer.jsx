@@ -1,4 +1,3 @@
-import React from "react";
 import {
   FaFacebookF,
   FaInstagram,
@@ -25,8 +24,8 @@ const Footer = () => {
           Welcome to our Movie App, your go-to destination for discovering and
           exploring the world of cinema. Browse through a curated selection of
           popular movies, search for your favorites, and dive into detailed
-          information about each film. Whether you're a casual movie-goer or a
-          dedicated cinephile, we've got something for everyone. Enjoy your
+          information about each film. Whether you&apos;re a casual movie-goer or a
+          dedicated cinephile, we&apos;ve got something for everyone. Enjoy your
           cinematic journey!.
         </div>
         <div className="socialIcons">

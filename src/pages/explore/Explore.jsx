@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Select from "react-select";
@@ -51,7 +51,7 @@ const Explore = () => {
         if (data?.results) {
           setData({
             ...data,
-            results: [...data?.results, ...res.results],
+            results: [...data.results, ...res.results],
           });
         } else {
           setData(res);
@@ -68,6 +68,8 @@ const Explore = () => {
     setSortby(null);
     setGenre(null);
     fetchInitialData();
+    // Must only refetch on mediaType change; module-level filters are replaced by URL state in the explore rewrite.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [mediaType]);
 
   const onChange = (selectedItems, action) => {

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import useFetch from "../../../hooks/useFetch";
@@ -18,7 +18,7 @@ const HeroBanner = () => {
       url.backdrop +
       data?.results?.[Math.floor(Math.random() * 20)]?.backdrop_path;
     setBackground(bg);
-  }, [data]);
+  }, [data, url.backdrop]);
 
   const searchQueryHandler = (event) => {
     if (event.key === "Enter" && query.length > 0) {

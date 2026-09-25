@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { HiOutlineSearch } from "react-icons/hi";
 import { SlMenu } from "react-icons/sl";
 import { VscChromeClose } from "react-icons/vsc";
@@ -40,6 +40,8 @@ const Header = () => {
     return () => {
       window.removeEventListener("scroll", controlNavbar);
     };
+    // Re-binds on every scroll so controlNavbar sees the latest lastScrollY; replaced in the header rewrite.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [lastScrollY]);
 
   const searchQueryHandler = (event) => {
